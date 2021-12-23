@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\rladb\eclipse-algorithm\.metadata\.plugins\org.eclipse.jdt.core
+616840867.index
+1865797976.index
+436629946.index
+3413725848.index

@@ -1,0 +1,22 @@
+
+public class Solution {
+	public static void main(String[] args) {
+		Solution t = new Solution();
+		System.out.println(t.solution(2014, 50));
+		
+	}
+	
+	
+	public int solution(int A, int B) {
+		String[] b = null;
+		String a = Integer.toBinaryString(A * B);
+		b = a.split("");
+		int count = 0;
+		for(int i = 0; i < b.length; i++) {
+			if(b[i].equals("1")) {
+				count ++;
+			}
+		}
+		return count;
+	}
+}

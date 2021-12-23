@@ -1,0 +1,31 @@
+
+public class Test {
+	public int solution(String[] A) {
+		String C[][] = null;
+		int count = 0;
+		loop:
+			for(int i = 0; i < A.length; i++) {
+				for(int j = 0; j < A[i].length(); j++) {
+					String B[];
+					
+					B = A[i].split("");
+
+					for(int q = 0; q < B.length; q++) {
+						for(int p = B.length; q < p; p--) {
+							if(p == q) {
+								break;
+							}
+							if(B[q].equals(B[p])) {
+								break loop;
+							}
+						}
+					}
+					C[count] = B;
+					count++;
+				}
+			}
+		for(int i = 0; i < C.length; i++) {
+
+		}
+	}
+}

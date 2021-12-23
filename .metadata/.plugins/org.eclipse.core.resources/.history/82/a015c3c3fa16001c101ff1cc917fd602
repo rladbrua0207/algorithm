@@ -1,0 +1,39 @@
+package Summer2021;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Q1011 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int t = Integer.parseInt(br.readLine());	
+
+		int n;
+		int num;
+		int temp, nextTemp;
+		int dif;
+
+
+		for(int i = 0; i < t; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine())
+			
+			int x = Integer.parseInt(st.nextToken());
+			int y = Integer.parseInt(br.readLine());
+			num = y - x;
+			temp = (int) Math.sqrt(num);
+			nextTemp = (temp+1)*(temp+1);
+			temp = temp*temp; // 작은 제곱수
+			dif= num - temp; //작은 제곱수 와의 차이
+			if(num == temp) {
+				n = (int) Math.sqrt(temp)*2 -1;
+			}else if((nextTemp-temp-1)/2 < dif) {
+				n = (int) Math.sqrt(temp)*2 +1;
+			}else {
+				n = (int) Math.sqrt(temp)*2;
+			}
+			System.out.println(n);
+		}
+	}
+}
