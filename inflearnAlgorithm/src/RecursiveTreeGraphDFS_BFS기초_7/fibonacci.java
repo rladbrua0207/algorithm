@@ -5,11 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class fibonacci {
+class Main {
     static int[] fibo;
 
     public int solution(int n) {
         if(fibo[n] > 0) return fibo[n];
+        if(n == 0) return fibo[n] = 0;
         if (n == 1) return fibo[n] = 1;
         else if (n == 2) return fibo[n] = 1;
         else return fibo[n] = solution(n-2) + solution(n-1);
@@ -18,7 +19,7 @@ public class fibonacci {
     }
 
     public static void main(String[] args) throws IOException {
-        fibonacci T = new fibonacci();
+        Main T = new Main();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
@@ -26,6 +27,6 @@ public class fibonacci {
 
         fibo = new int[n + 1];
         T.solution(n);
-        for (int i = 1; i <= n; i++) System.out.print(fibo[i] + " ");
+        System.out.println(fibo[n]);
     }
 }
