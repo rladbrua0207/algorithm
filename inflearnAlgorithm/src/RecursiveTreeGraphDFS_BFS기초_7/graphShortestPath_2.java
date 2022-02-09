@@ -8,38 +8,30 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class graphShortestPath {
-    static int N;
-    static int M;
-    static int[] ch;
-    static int[] dis;
+public class graphShortestPath_2 {
+    static int N, M;
+    static int[] ch, dis;
     static ArrayList<ArrayList<Integer>> graph;
-    static int count = 0;
-    static Queue<Integer> Q;
 
-    public void BFS(int root) {
-        int L = 0;
-        Q.offer(root);
-        while (!Q.isEmpty()){
-            int len = Q.size();
-            for(int i = 0; i < len; i++){
-                int vt = Q.poll();
-                for(int nv : graph.get(vt)){
-                    if(ch[nv] == 0){
-                        Q.offer(nv);
-                        ch[nv] = L+1;
-                    }
+    public void BFS(int v) {
+        Queue<Integer> Q = new LinkedList<>();
+        ch[v] = 1;
+        dis[v] = 0;
+        Q.offer(v);
+        while (!Q.isEmpty()) {
+            int cv = Q.poll();//current vertex
+            for (int nv : graph.get(cv)) {//next vertex
+                if (ch[nv] == 0) {
+                    ch[nv] = 1;
+                    Q.offer(nv);
+                    dis[nv] = dis[cv] + 1;
                 }
             }
-            L++;
         }
-
-
-
     }
 
     public static void main(String[] args) throws IOException {
-        graphShortestPath T = new graphShortestPath();
+        graphShortestPath_2 T = new graphShortestPath_2();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
@@ -47,10 +39,9 @@ public class graphShortestPath {
         M = Integer.parseInt(st.nextToken());
         ch = new int[N + 1];
         dis = new int[N + 1];
-        Q = new LinkedList<>();
 
         graph = new ArrayList<>();
-        for(int i = 0; i <= N; i++){
+        for (int i = 0; i <= N; i++) {
             graph.add(new ArrayList<>());
         }
 
@@ -60,10 +51,11 @@ public class graphShortestPath {
             int b = Integer.parseInt(st.nextToken());
             graph.get(a).add(b);
         }
+
         T.BFS(1);
 
-        for(int i = 2; i < ch.length; i++){
-            System.out.println(ch[i]);
+        for (int i = 2; i < ch.length; i++) {
+            System.out.println(i + " : " + dis[i]);
 
         }
     }
