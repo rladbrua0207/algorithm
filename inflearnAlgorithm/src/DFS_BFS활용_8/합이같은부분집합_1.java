@@ -14,7 +14,7 @@ public class 합이같은부분집합_1 {
             int sum = 0;
             for(int i = 0; i < N; i++){
                 if(ch[i] == 1){
-                   sum += arr[i];
+                    sum += arr[i];
                 }
             }
             if(total - sum * 2 == 0){
