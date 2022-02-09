@@ -1,14 +1,14 @@
 package RecursiveTreeGraphDFS_BFS기초_7;
 
-class Node{
-    int data;
-    Node lt, rt;
-    public Node(int val) {
-        data=val;
-        lt=rt=null;
-    }
-
-}
+//class Node{
+//    int data;
+//    Node lt, rt;
+//    public Node(int val) {
+//        data=val;
+//        lt=rt=null;
+//    }
+//
+//}
 
 public class TreeMinLengthDFS {
     Node root;
