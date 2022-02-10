@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class 바둑이승차_2 {
     static int answer = 0;
     static int ch[], arr[], C, N;
 

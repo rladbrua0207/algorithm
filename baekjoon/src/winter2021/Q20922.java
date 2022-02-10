@@ -25,7 +25,6 @@ public class Q20922 {
                 length++;
                 rt++;
             }
-
             answer = Math.max(answer, length);
         }
         return answer;

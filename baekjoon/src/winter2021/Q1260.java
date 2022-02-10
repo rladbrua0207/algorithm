@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+public class Q1260 {
     static int N, M, checkDFS[], checkBFS[];
     static ArrayList<ArrayList<Integer>> graph;
     static ArrayList<Integer> answerDFS, answerBFS;
