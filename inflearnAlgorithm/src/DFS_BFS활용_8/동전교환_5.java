@@ -21,9 +21,7 @@ public class 동전교환_5 {
         } else {
             for (int i = 0; i < kinds.size(); i++) {
                 if(check[sum+ kinds.get(i)] == 0){
-                    check[sum+ kinds.get(i)] = 1;
                     DFS(L + 1, sum + kinds.get(i));
-                    check[sum+ kinds.get(i)] = 0;
                 }
             }
         }

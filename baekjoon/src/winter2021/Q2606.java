@@ -12,9 +12,8 @@ public class Q2606 {
     static int answer = 0;
 
     static void DFS(int L) {
-        if(check[1] == 0){
-            return;
-        }else{
+        if(check[1] == 0) return;
+        else{
             for (int a : arr.get(L)) {
                 if (check[a] == 0) {
                     check[a] = 1;
