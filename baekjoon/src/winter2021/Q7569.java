@@ -93,7 +93,9 @@ public class Q7569 {
                 }
             }
         }
+
         DFS();
+
         System.out.println(answer);
     }
 }
