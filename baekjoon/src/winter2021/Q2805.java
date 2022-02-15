@@ -8,10 +8,11 @@ import java.util.StringTokenizer;
 
 public class Q2805 {
     static int[] treeArr;
-    static int  N, M;
+    static int N, M;
     static long answer = Integer.MIN_VALUE;
-    static void binarySearch(int mid,int lt,int rt){
-        if(lt<=rt){
+
+    static void binarySearch(int mid, int lt, int rt) {
+        if (lt <= rt) {
             long sum = 0;
 
             for (int i = 0; i < N; i++) {
@@ -20,13 +21,12 @@ public class Q2805 {
                 }
             }
 
-            if(sum >= M){
-                answer =  Math.max(answer, mid);
+            if (sum >= M) {
+                answer = Math.max(answer, mid);
                 lt = mid + 1;
                 mid = (rt + lt) / 2;
                 binarySearch(mid, lt, rt);
-            }
-            else{
+            } else {
                 rt = mid - 1;
                 mid = (rt + lt) / 2;
                 binarySearch(mid, lt, rt);
@@ -53,7 +53,7 @@ public class Q2805 {
         int rt = treeArr[N - 1];
         int mid = (lt + rt) / 2;
 
-        binarySearch(mid,lt, rt );
+        binarySearch(mid, lt, rt);
 
         System.out.println(answer);
     }
