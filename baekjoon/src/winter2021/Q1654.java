@@ -14,17 +14,13 @@ public class Q1654 {
         long mid = 0;
         while (low <= high) {
             mid = (high + low) / 2;
-            if (cuttingLanNum(mid, lan) >= N) {
-                low = mid + 1;
-            } else{
-                high = mid - 1;
-            }
+            if (cuttingLanNum(mid, lan) >= N) low = mid + 1;
+            else high = mid - 1;
         }
         System.out.println(high);
-
     }
 
-    static long cuttingLanNum(long mid, long[] lan) {
+    static long cuttingLanNum(long mid, long[] lan) {//잘려진 랜선의 개수
         long count = 0;
         for (int i = 0; i < K; i++) {
             count += (lan[i] / mid);
@@ -45,7 +41,6 @@ public class Q1654 {
         for (int i = 0; i < K; i++) {
             lan[i] = Integer.parseInt(br.readLine());
         }
-
         Arrays.sort(lan);
 
         high = lan[K - 1];
