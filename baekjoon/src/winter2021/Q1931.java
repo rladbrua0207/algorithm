@@ -3,17 +3,22 @@ package winter2021;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
 
-class ConferenceTime{
-    int start;
-    int end;
-    ConferenceTime(int start, int end){
+class ConferenceTime implements Comparable<ConferenceTime> {
+    public int start, end;
+
+    ConferenceTime(int start, int end) {
         this.start = start;
         this.end = end;
     }
-}
 
+    @Override
+    public int compareTo(ConferenceTime o) {
+        if (this.end == o.end) return this.start - o.start;
+        else return this.end - o.end;
+    }
+}
 
 public class Q1931 {
     public static void main(String[] args) throws IOException {
@@ -29,52 +34,20 @@ public class Q1931 {
             int end = Integer.parseInt(st.nextToken());
             time[i] = new ConferenceTime(start, end);
         }
-
-        sortTimeEnd(time);
-        sortTimeStart(time);
+        Arrays.sort(time);
 
         System.out.println(solution(time));
-
     }
 
-    static void sortTimeEnd(ConferenceTime[] time){
-        for(int i=0; i < time.length; i++){
-            int minIndex = i; //가장 적은 원소의 인덱스
-
-            for(int j=i+1 ; j < time.length; j++){
-                if(time[minIndex].end > time[j].end )
-                    minIndex = j;
-            }
-
-            ConferenceTime tmp = time[i];
-            time[i] = time[minIndex];
-            time[minIndex] = tmp;
-        }
-    }
-
-    static void sortTimeStart(ConferenceTime[] time){
-        for(int i=1; i < time.length; i++){
-          if(time[i].end == time[i-1].end){
-              if(time[i].start < time[i-1].start){
-                  ConferenceTime tmp = time[i];
-                  time[i] = time[i-1];
-                  time[i-1] = tmp;
-              }
-          }
-        }
-    }
-
-    static int solution(ConferenceTime[] time){
-        int end = time[0].end;
-        int answer = 1;
-
-        for(int i = 1; i < time.length; i++){
-
-            if(time[i].start >= end){
-                end = time[i].end;
-                answer++;
+    static int solution(ConferenceTime[] time) {
+        int count = 0;
+        int endTime = 0;
+        for (ConferenceTime t : time) {
+            if (t.start >= endTime) {
+                count++;
+                endTime = t.end;
             }
         }
-        return answer;
+        return count;
     }
 }
