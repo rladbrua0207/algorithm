@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 합이같은부분집합_1 {
+public class no_1_합이같은부분집합 {
     static int[] arr, ch, sum;
     static int N, index = 0, total = 0;
     static String answer;
@@ -32,7 +32,7 @@ public class 합이같은부분집합_1 {
 
 
     public static void main(String[] args) throws IOException {
-        합이같은부분집합_1 T = new 합이같은부분집합_1();
+        no_1_합이같은부분집합 T = new no_1_합이같은부분집합();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());

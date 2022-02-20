@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 조합수_7 {
+public class no_7_조합수 {
     static int[][] dy = new int[35][35];
     public static int DFS(int n, int r){
         if(dy[n][r] > 0) return dy[n][r];

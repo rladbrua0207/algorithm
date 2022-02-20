@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 최대점수구하기_3 {
+public class no_3_최대점수구하기 {
     static int arr[][], answer = Integer.MIN_VALUE, N, M;
 
     static void DFS(int L, int score, int time){

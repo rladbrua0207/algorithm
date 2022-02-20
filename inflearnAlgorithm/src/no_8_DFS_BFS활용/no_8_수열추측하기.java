@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 수열추측하기_8 {
+public class no_8_수열추측하기 {
     static int N, F;
     static boolean flag = false;
     static int[] arr, check, answer;

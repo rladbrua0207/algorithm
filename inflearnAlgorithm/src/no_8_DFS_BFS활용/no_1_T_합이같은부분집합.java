@@ -2,7 +2,7 @@ package no_8_DFS_BFS활용;
 
 import java.util.*;
 
-class 합이같은부분집합_1_T{
+class no_1_T_합이같은부분집합 {
     static String answer="NO";
     static int n, total=0;
     boolean flag=false;
@@ -21,7 +21,7 @@ class 합이같은부분집합_1_T{
         }
     }
     public static void main(String[] args){
-        합이같은부분집합_1_T T = new 합이같은부분집합_1_T();
+        no_1_T_합이같은부분집합 T = new no_1_T_합이같은부분집합();
         Scanner kb = new Scanner(System.in);
         n=kb.nextInt();
         int[] arr=new int[n];

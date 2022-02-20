@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 순열구하기_6 {
+public class no_6_순열구하기 {
     static void DFS(int L, int M, int[] arr, int[] answer){
         if(L == M){
             for (int a : answer) System.out.print(a + " ");

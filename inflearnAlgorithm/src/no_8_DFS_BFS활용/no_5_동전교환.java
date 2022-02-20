@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class 동전교환_5 {
+public class no_5_동전교환 {
     static int[] check;
     static ArrayList<Integer> kinds;
     static int M, answer = Integer.MAX_VALUE;

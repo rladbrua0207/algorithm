@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 미로탐색_10 {
+public class no_10_미로탐색 {
     static int[] dx = {1, -1, 0, 0}, dy = {0, 0, 1, -1};
     static int count = 0;
     static int[][] maze;
