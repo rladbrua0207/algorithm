@@ -49,11 +49,8 @@ public class Q1202 {
         int i = 0;
         for (int bag : bags) {
             for (; i < jewels.size(); i++) {
-                if (bag >= jewels.get(i).weight) {
-                    pQ.offer(jewels.get(i).price);
-                } else {
-                    break;
-                }
+                if (bag < jewels.get(i).weight) break;
+                pQ.offer(jewels.get(i).price);
             }
             if (!pQ.isEmpty()) {
                 answer += pQ.poll();
