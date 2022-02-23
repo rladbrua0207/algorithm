@@ -8,14 +8,14 @@ import java.util.StringTokenizer;
 public class Q1976 {
     static int[] city;
 
-    public static int findCity(int a) {
+    public static int findParent(int a) {
         if (city[a] == a) return a;
-        else return city[a] = findCity(city[a]);
+        else return city[a] = findParent(city[a]);
     }
 
     public static void union(int a, int b) {
-        a = findCity(a);
-        b = findCity(b);
+        a = findParent(a);
+        b = findParent(b);
         if (a != b) city[b] = a;
     }
 
@@ -32,14 +32,15 @@ public class Q1976 {
         for (int i = 1; i <= N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 1; j <= N; j++) if (Integer.parseInt(st.nextToken()) == 1) union(city[i], city[j]);
+            //i와 연결돼 있는 j도시 이므로 union(city[i], city[j])
         }
 
         String answer = "YES";
 
         st = new StringTokenizer(br.readLine());
-        int pCity = findCity(Integer.parseInt(st.nextToken()));
+        int pCity = findParent(Integer.parseInt(st.nextToken()));
         for (int i = 1; i < M; i++) {
-            int cCity = findCity(Integer.parseInt(st.nextToken()));
+            int cCity = findParent(Integer.parseInt(st.nextToken()));
             if (pCity != cCity) {
                 answer = "NO";
                 break;
