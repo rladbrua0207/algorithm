@@ -18,10 +18,10 @@ public class Q18352 {
         int K = Integer.parseInt(st.nextToken());//거리 정보
         int X = Integer.parseInt(st.nextToken());//출발 도시의 정보
 
-        graph = new ArrayList<>();
         distance = new int[N + 1];
         for (int i = 1; i < distance.length; i++) distance[i] = Integer.MAX_VALUE;
 
+        graph = new ArrayList<>();
         for (int i = 0; i <= N; i++) graph.add(new ArrayList<>());
 
         for (int i = 0; i < M; i++) {
