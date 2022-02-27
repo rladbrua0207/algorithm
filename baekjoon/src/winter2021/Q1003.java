@@ -21,21 +21,14 @@ public class Q1003 {
         int T = Integer.parseInt(br.readLine());
 
         int[] arr = new int[T];
-
-        for (int i = 0; i < T; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
-        }
-
+        for (int i = 0; i < T; i++) arr[i] = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < T; i++) {
             count = new Count[arr[i] + 1];
-            for(int j = 0; j < count.length; j++){
-                count[j] = new Count(0,0);
-            }
+            for(int j = 0; j < count.length; j++) count[j] = new Count(0,0);
             Count a = fibo(arr[i]);
             System.out.println(a.zero + " " + a.one);
         }
-
     }
 
     static Count fibo(int n) {
