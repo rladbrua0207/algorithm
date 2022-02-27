@@ -44,14 +44,16 @@ public class Q11054 {
 
         for (int i = 2; i <= N; i++) {
             for (int j = 1; j <= i - 1; j++) {
-                if (arr[i] > arr[j]) dy1[i] = Math.max(dy1[j] + 1, dy1[i]);
+                if (arr[i] > arr[j] && dy1[i] < dy1[j] + 1){
+                    dy1[i] = dy1[j] + 1;
+                }
             }
         }
 
         for (int i = N-1; i >= 1; i--) {
             for (int j = i + 1; j <= N; j++) {
-                if (arr[i] > arr[j]) {
-                    dy2[i] = Math.max(dy2[i], dy2[j] + 1);
+                if (arr[i] > arr[j] && dy2[i] < dy2[j] + 1) {
+                    dy2[i] = dy2[j] + 1;
                 }
             }
         }
