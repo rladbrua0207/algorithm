@@ -11,7 +11,7 @@ public class Q1541 {
 
         String str = br.readLine();
         char[] ch = str.toCharArray();
-        ArrayList<String> arr = new ArrayList<String>();
+        ArrayList<String> arr = new ArrayList<>();
 
         StringBuilder a = new StringBuilder();
         for (int i = 0; i < ch.length; i++) {
