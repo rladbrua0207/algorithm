@@ -13,7 +13,6 @@ public class Q2667 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
         N = Integer.parseInt(br.readLine());
         graph = new int[N + 1][N + 1];
         for (int i = 1; i <= N; i++) {
