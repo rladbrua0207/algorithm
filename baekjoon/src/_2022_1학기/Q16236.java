@@ -1,9 +1,8 @@
-package winter2021;
+package _2022_1학기;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.invoke.ConstantBootstraps;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -24,10 +23,10 @@ class BabyShark {
     }
 }
 
-public class Q16236 {
+public class Q16236 {//아직못풂
     static int N, answer = 0;
     static int[] dx = {-1, 0, 1, 0}, dy = {0, -1, 0, 1};
-    static int[][] board;
+    static int[][] board, visited;
     static Queue<BabyShark> Q;
 
     public static void main(String[] args) throws IOException {
@@ -55,28 +54,32 @@ public class Q16236 {
     }
 
     static void BFS(BabyShark baby) {
-        Q.offer(baby);
-        while (!Q.isEmpty()) {
-            BabyShark cBaby = Q.poll();
-            answer = Math.max(cBaby.time, answer);
-            for (int j = 0; j < 4; j++) {
-                int nx = cBaby.x + dx[j];
-                int ny = cBaby.y + dy[j];
-                int size = cBaby.size;
-                int exp = cBaby.exp;
-                int time = cBaby.time;
-                if (nx >= 0 && nx < N && ny >= 0 && ny < N && size >= board[nx][ny]) {
-                    if (size == board[nx][ny]) {
-                        Q.offer(new BabyShark(nx, ny, size, exp, time + 1));
-                    } else {//nSize > board[nx][ny]
-                        exp += 1;
-                        if (exp == size) {
-                            size += 1;
-                            exp = 0;
+
+        while (true) {
+
+            Q.offer(baby);
+            while (!Q.isEmpty()) {
+                BabyShark cBaby = Q.poll();
+                answer = Math.max(cBaby.time, answer);
+                for (int j = 0; j < 4; j++) {
+                    int nx = cBaby.x + dx[j];
+                    int ny = cBaby.y + dy[j];
+                    int size = cBaby.size;
+                    int exp = cBaby.exp;
+                    int time = cBaby.time;
+                    if (nx >= 0 && nx < N && ny >= 0 && ny < N && size >= board[nx][ny]) {
+                        if (size == board[nx][ny]) {
+                            Q.offer(new BabyShark(nx, ny, size, exp, time + 1));
+                        } else {//nSize > board[nx][ny]
+                            exp += 1;
+                            if (exp == size) {
+                                size += 1;
+                                exp = 0;
+                            }
+                            Q.offer(new BabyShark(nx, ny, size, exp, time + 1));
                         }
-                        Q.offer(new BabyShark(nx, ny, size, exp, time + 1));
+                        board[nx][ny] = 0;
                     }
-                    board[nx][ny] = 0;
                 }
             }
         }
