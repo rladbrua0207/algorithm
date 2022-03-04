@@ -18,11 +18,8 @@ public class Q1874 {
         StringBuilder sb = new StringBuilder();
         Stack<Integer> stack = new Stack<>();
 
-
         int j = 1;
-
         for (int i = 1; i <= N; i++) {
-
             if (j <= value[i]) {
                 for (; j <= value[i]; j++) {
                     stack.push(j);
