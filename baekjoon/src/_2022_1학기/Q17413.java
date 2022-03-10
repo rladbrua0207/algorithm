@@ -19,30 +19,30 @@ public class Q17413 {
         boolean inRange = false;
         for (int i = 0; i < arr.size(); i++) {
             if (arr.get(i).equals("<")) {
-                while (!stack.isEmpty()) {
-                    sb.append(stack.pop());
-                }
+                printStack(sb, stack);
                 sb.append("<");
                 inRange = true;
             } else if (arr.get(i).equals(">")) {
                 inRange = false;
                 sb.append(arr.get(i));
             } else {
-                if (inRange) {
-                    sb.append(arr.get(i));
-                } else if (!inRange) {
+                if (inRange) sb.append(arr.get(i));
+                else  {
                     if(arr.get(i).equals(" ")){
-                        while (!stack.isEmpty()) {
-                            sb.append(stack.pop());
-                        }
+                        printStack(sb, stack);
                         sb.append(" ");
                     }else stack.push(arr.get(i));
                 }
             }
         }
+        printStack(sb, stack);
+
+        System.out.println(sb);
+    }
+
+    private static void printStack(StringBuilder sb, Stack<String> stack) {
         while (!stack.isEmpty()) {
             sb.append(stack.pop());
         }
-        System.out.println(sb);
     }
 }
