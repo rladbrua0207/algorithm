@@ -19,8 +19,6 @@ public class Q16194 {
         for (int i = 1; i <= N; i++) {
             cost[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.fill(dp,1);
-
         for (int i = 1; i <= N; i++) {
             dp[i] = cost[i];
             for (int j = 1; j <= i ; j++) {
