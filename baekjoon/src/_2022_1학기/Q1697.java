@@ -7,18 +7,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-class Subin {
-    int location;
-    int count;
-
-    Subin(int location, int count) {
-        this.location = location;
-        this.count = count;
-    }
-}
-
 public class Q1697 {
     static int K;
+    static int[] check;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,28 +18,34 @@ public class Q1697 {
         int N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
 
-
+        check = new int[100001];
         int answer = BFS(N);
+        System.out.println(answer);
     }
 
     static int BFS(int root) {
-        Queue<Subin> Q = new LinkedList<>();
-        Q.offer(new Subin(root, 0));
+        Queue<Integer> Q = new LinkedList<>();
+        Q.offer(root);
+        check[root] = 1;
         while (!Q.isEmpty()) {
-            Subin s = Q.poll();
-
-            if (s.location == K) {
-
-            } else if (s.location < K / 2) {
-                Q.offer(new Subin(s.location * 2, s.count + 1));
-            } else if (s.location < K) {
-                Q.offer(new Subin(s.location + 1, s.count + 1));
-            } else {
-                Q.offer(new Subin(s.location + -1, s.count + 1));
+            int cv = Q.poll();
+            if (cv == K) {
+                return check[cv]-1;
+            }
+            if (2 * cv <= 100000 && check[2 * cv] == 0) {
+                check[cv * 2] = check[cv] + 1;
+                Q.offer(cv * 2);
+            }
+            if (cv + 1 <= 100000 && check[cv + 1] == 0) {
+                check[cv + 1] = check[cv] + 1;
+                Q.offer(cv + 1);
+            }
+            if (cv - 1 >= 0 && check[cv - 1] == 0) {
+                check[cv - 1] = check[cv] + 1;
+                Q.offer(cv - 1);
             }
 
         }
+        return 0;
     }
-
-
 }
